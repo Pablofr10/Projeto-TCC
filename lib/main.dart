@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_tcc/ui/telas/home_tela.dart';
+import 'package:projeto_tcc/ui/telas/login_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }

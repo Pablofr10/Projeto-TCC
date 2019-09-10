@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_tcc/ui/telas/login_page.dart';
+import 'package:projeto_tcc/ui/widgets/quad_widgets.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -9,84 +11,55 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Material(
       child: Container(
-          decoration: BoxDecoration(color: Colors.white),
-          child: Column(children: <Widget>[
+        child: Stack(
+          children: <Widget>[
             Container(
-              padding: EdgeInsets.only(top: 50),
-              width: 200,
-              child: Image.network(
-                  'https://pbs.twimg.com/profile_images/519178096092520449/las-E4I9.png'),
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height / 2,
               width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.only(top: 93),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width / 1.2,
-                    padding:
-                        EdgeInsets.only(top: 4, left: 16, right: 16, bottom: 4),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(50)),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(color: Colors.red, blurRadius: 5),
-                        ]),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        icon: Icon(
-                          Icons.email,
-                          color: Colors.red,
-                        ),
-                        hintText: 'Usuário',
+              child: Image.asset('assets/imagens/home.jpg'),
+            ),
+            Positioned(
+                height: size.height / 2 * 1.3,
+                width: size.width,
+                bottom: 0,
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(30),
+                        topLeft: Radius.circular(30),
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          offset: Offset(1.0, 6.0),
+                          blurRadius: 40.0,
+                        )
+                      ]),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            QuadWidgets(Icons.person, 'Perfil', LoginPage()),
+                            QuadWidgets(
+                                Icons.calendar_today, 'Perfil', LoginPage()),
+                            QuadWidgets(
+                                Icons.calendar_today, 'Perfil', LoginPage())
+                          ],
+                        )
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width / 1.2,
-                    padding:
-                        EdgeInsets.only(top: 4, left: 16, right: 16, bottom: 4),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(50)),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(color: Colors.red, blurRadius: 5),
-                        ]),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        icon: Icon(
-                          Icons.vpn_key,
-                          color: Colors.red,
-                        ),
-                        hintText: 'Senha',
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 350,
-                    height: 70,
-                    padding: EdgeInsets.only(top: 20),
-                    child: RaisedButton(
-                      color: Colors.red,
-                      child: Text(
-                        'Entrar',
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0)),
-                      onPressed: () {},
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ])),
+                ))
+          ],
+        ),
+      ),
     );
   }
 }
