@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_tcc/ui/telas/historico_tela.dart';
 import 'package:projeto_tcc/ui/telas/login_page.dart';
 import 'package:projeto_tcc/ui/widgets/quad_widgets.dart';
 
@@ -15,6 +16,9 @@ class _HomePageState extends State<HomePage> {
 
     return Material(
       child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+        ),
         child: Stack(
           children: <Widget>[
             Container(
@@ -25,35 +29,93 @@ class _HomePageState extends State<HomePage> {
                 height: size.height / 2 * 1.3,
                 width: size.width,
                 bottom: 0,
-                child: Container(
-                  decoration: BoxDecoration(
+                child: SingleChildScrollView(
+                  child: Container(
+                    decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(30),
                         topLeft: Radius.circular(30),
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          offset: Offset(1.0, 6.0),
-                          blurRadius: 40.0,
-                        )
-                      ]),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Column(
-                      children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            QuadWidgets(Icons.person, 'Perfil', LoginPage()),
-                            QuadWidgets(
-                                Icons.calendar_today, 'Perfil', LoginPage()),
-                            QuadWidgets(
-                                Icons.calendar_today, 'Perfil', LoginPage())
-                          ],
-                        )
-                      ],
+                    ),
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 8.0, right: 20, left: 20),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.only(bottom: 10, top: 10),
+                            alignment: Alignment.bottomLeft,
+                            child: Text(
+                              'Serviços',
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  fontFamily: 'Bitter',
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              QuadWidgets(
+                                  Icons.assignment, 'Agendamento', LoginPage()),
+                              QuadWidgets(Icons.assignment_turned_in,
+                                  'Resultados', LoginPage()),
+                              QuadWidgets(Icons.assignment_ind, 'Histórico',
+                                  HistoricoPage())
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              QuadWidgets(Icons.file_download, 'Downloads',
+                                  LoginPage()),
+                              QuadWidgets(
+                                  Icons.chat, 'Contato', HistoricoPage()),
+                              QuadWidgets(Icons.person, 'Perfil', LoginPage())
+                            ],
+                          ),
+                          SizedBox(height: 15),
+                          Container(
+                            width: size.width,
+                            decoration: BoxDecoration(
+                              color: Colors.yellow[100],
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
+                            child: Column(
+                              children: <Widget>[
+                                Text('Avisos',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontFamily: 'Bitter',
+                                        fontWeight: FontWeight.bold)),
+                                Container(
+                                  width: size.width,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: <Widget>[
+                                      Text(
+                                        'A Policlínica não funcionara nos dias xxx devido a outras coisas sssssssssssssss sssssssss ssss',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                      Text(
+                                        'A Policlínica não funcionara nos dias xxx devido a outras coisas',
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ))

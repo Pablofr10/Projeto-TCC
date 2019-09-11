@@ -12,7 +12,7 @@ class QuadWidgets extends StatelessWidget {
     return Container(
       width: 100,
       height: 100,
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.all(2),
       decoration: BoxDecoration(
           color: Colors.red,
           borderRadius: BorderRadius.circular(10),
@@ -25,15 +25,16 @@ class QuadWidgets extends StatelessWidget {
           ]),
       child: GestureDetector(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Icon(
               icon,
               color: Colors.white,
-              size: 50,
+              size: 40,
             ),
             Text(
               name,
-              style: TextStyle(color: Colors.white, fontSize: 20),
+              style: TextStyle(color: Colors.white, fontSize: 14),
             )
           ],
         ),
