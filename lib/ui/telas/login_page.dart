@@ -17,9 +17,7 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               padding: EdgeInsets.only(top: 50),
               width: 200,
-              child: Image.network(
-                  'https://pbs.twimg.com/profile_images/519178096092520449/las-E4I9.png'),
-            ),
+              child: Image.asset('assets/imagens/login.jpg')),
             Container(
               height: MediaQuery.of(context).size.height / 2,
               width: MediaQuery.of(context).size.width,

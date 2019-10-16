@@ -3,6 +3,8 @@ import 'package:projeto_tcc/ui/telas/historico_tela.dart';
 import 'package:projeto_tcc/ui/telas/login_page.dart';
 import 'package:projeto_tcc/ui/widgets/quad_widgets.dart';
 
+import 'agendamento_tela.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
@@ -26,7 +28,7 @@ class _HomePageState extends State<HomePage> {
               child: Image.asset('assets/imagens/home.jpg'),
             ),
             Positioned(
-                height: size.height / 2 * 1.3,
+                height: size.height / 2 * 1.4,
                 width: size.width,
                 bottom: 0,
                 child: SingleChildScrollView(
@@ -34,8 +36,8 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(30),
-                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(40),
+                        topLeft: Radius.circular(40),
                       ),
                     ),
                     child: Padding(
@@ -55,12 +57,10 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
-                              QuadWidgets(
-                                  Icons.assignment, 'Agendamento', LoginPage()),
-                              QuadWidgets(Icons.assignment_turned_in,
-                                  'Resultados', LoginPage()),
+                              QuadWidgets(Icons.assignment, 'Agendamento',
+                                  AgendamentoTela()),
                               QuadWidgets(Icons.assignment_ind, 'Histórico',
                                   HistoricoPage())
                             ],
@@ -69,10 +69,8 @@ class _HomePageState extends State<HomePage> {
                             height: 10,
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
-                              QuadWidgets(Icons.file_download, 'Downloads',
-                                  LoginPage()),
                               QuadWidgets(
                                   Icons.chat, 'Contato', HistoricoPage()),
                               QuadWidgets(Icons.person, 'Perfil', LoginPage())

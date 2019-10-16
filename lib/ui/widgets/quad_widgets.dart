@@ -10,8 +10,8 @@ class QuadWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 100,
+      width: 120,
+      height: 120,
       padding: EdgeInsets.all(2),
       decoration: BoxDecoration(
           color: Colors.red,
@@ -30,11 +30,11 @@ class QuadWidgets extends StatelessWidget {
             Icon(
               icon,
               color: Colors.white,
-              size: 40,
+              size: 60,
             ),
             Text(
               name,
-              style: TextStyle(color: Colors.white, fontSize: 14),
+              style: TextStyle(color: Colors.white, fontSize: 17),
             )
           ],
         ),
