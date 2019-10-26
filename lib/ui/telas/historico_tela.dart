@@ -1,7 +1,31 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-class HistoricoPage extends StatelessWidget {
-  const HistoricoPage({Key key}) : super(key: key);
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+
+import 'package:projeto_tcc/core/model/historico.dart';
+import 'package:projeto_tcc/ui/widgets/lista_widget.dart';
+
+class HistoricoPage extends StatefulWidget {
+
+  @override
+  _HistoricoTelaState createState() => _HistoricoTelaState();
+}
+
+  Future<List<Historico>> fetchHistorico() async {
+    final response = await http.get("http://10.0.2.2:3000/historico"); 
+    return parseHistorico(response.body);
+  }
+
+  List<Historico> parseHistorico(String body){
+    final parsed = json.decode(body).cast<Map<String, dynamic>>();
+
+    return parsed.map<Historico>((json) => Historico.fromJson(json)).toList();
+  }
+
+class _HistoricoTelaState extends State<HistoricoPage> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -11,43 +35,13 @@ class HistoricoPage extends StatelessWidget {
               style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center),
         ),
-        body: Container(
-          padding: EdgeInsets.only(top: 10),
-          child: ListView.builder(itemBuilder: (context, index) {
-            return ListTile(
-                leading: Icon(Icons.person),
-                title: Container(
-                  width: 500,
-                  child: Row(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 200,
-                        child: Text('Pericía Médica'),
-                      ),
-                      SizedBox(
-                        width: 100,
-                        child: Text(
-                          index < 3 ? 'Confirmado' : 'Realizado',
-                          textAlign: TextAlign.right,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                subtitle: Row(
-                  children: <Widget>[
-                    Text('30/08/2019'),
-                    SizedBox(
-                      width: 9,
-                    ),
-                    Icon(
-                      Icons.timer,
-                      size: 12,
-                    ),
-                    Text('12:00'),
-                  ],
-                ));
-          }),
-        ));
+        body: FutureBuilder<List<Historico>>(
+            future: fetchHistorico(),
+            builder: (context, snapshot) {
+              print(snapshot);
+              return snapshot.hasData
+               ? ListaWidget(historico: snapshot.data) 
+               : Center(child: CircularProgressIndicator());
+            }));
   }
 }

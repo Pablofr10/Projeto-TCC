@@ -4,6 +4,7 @@ import 'package:projeto_tcc/ui/telas/login_page.dart';
 import 'package:projeto_tcc/ui/widgets/quad_widgets.dart';
 
 import 'agendamento_tela.dart';
+import 'paciente_tela.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -73,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                             children: <Widget>[
                               QuadWidgets(
                                   Icons.chat, 'Contato', HistoricoPage()),
-                              QuadWidgets(Icons.person, 'Perfil', LoginPage())
+                              QuadWidgets(Icons.person, 'Perfil', PacientePage())
                             ],
                           ),
                           SizedBox(height: 15),
