@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc/ui/telas/historico_tela.dart';
-import 'package:projeto_tcc/ui/telas/login_page.dart';
 import 'package:projeto_tcc/ui/widgets/quad_widgets.dart';
 
 import 'agendamento_tela.dart';
 import 'paciente_tela.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
 
   _HomePageState createState() => _HomePageState();
 }
@@ -100,11 +98,11 @@ class _HomePageState extends State<HomePage> {
                                         CrossAxisAlignment.stretch,
                                     children: <Widget>[
                                       Text(
-                                        'A Policlínica não funcionara nos dias xxx devido a outras coisas sssssssssssssss sssssssss ssss',
+                                        'A Policlínica não funcionara nos dias 26 e 24',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                       Text(
-                                        'A Policlínica não funcionara nos dias xxx devido a outras coisas',
+                                        'Dia 28/09 será a comemoração do dia dos Bombeiros',
                                         style: TextStyle(fontSize: 15),
                                       ),
                                     ],

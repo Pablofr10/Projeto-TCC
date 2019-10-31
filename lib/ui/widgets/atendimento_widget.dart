@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'horarios_widget.dart';
+
 class AtendimentoWidgets extends StatelessWidget {
   final String nome;
 
@@ -16,13 +18,20 @@ class AtendimentoWidgets extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: InkWell(
-              child: Padding(
+        child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Center(
-            child: Text(nome, style: TextStyle(color: Colors.white, fontSize: 30), )
-          ),
+              child: Text(
+            nome,
+            style: TextStyle(color: Colors.white, fontSize: 30),
+          )),
         ),
-        onTap: (){},
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => HorariosWidget(nome),
+          ));
+          
+        },
       ),
     );
   }

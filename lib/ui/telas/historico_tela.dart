@@ -29,6 +29,7 @@ class _HistoricoTelaState extends State<HistoricoPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: AppBar(
           title: Text('Histórico',
@@ -38,7 +39,7 @@ class _HistoricoTelaState extends State<HistoricoPage> {
         body: FutureBuilder<List<Historico>>(
             future: fetchHistorico(),
             builder: (context, snapshot) {
-              print(snapshot);
+              
               return snapshot.hasData
                ? ListaWidget(historico: snapshot.data) 
                : Center(child: CircularProgressIndicator());

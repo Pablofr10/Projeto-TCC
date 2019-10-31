@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc/core/model/paciente.dart';
+import 'package:projeto_tcc/ui/telas/login_page.dart';
 
 class PerfilWidget extends StatelessWidget {
   final List<Paciente> perfil;
@@ -34,8 +35,8 @@ class PerfilWidget extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-         Container(
-           margin: EdgeInsets.only(top: 5),
+        Container(
+          margin: EdgeInsets.only(top: 5),
           padding: EdgeInsets.only(top: 12),
           height: 50,
           color: Colors.deepOrange[50],
@@ -67,8 +68,8 @@ class PerfilWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-         Container(
-           margin: EdgeInsets.only(top: 5),
+        Container(
+          margin: EdgeInsets.only(top: 5),
           padding: EdgeInsets.only(top: 12),
           height: 60,
           color: Colors.deepOrange[50],
@@ -78,9 +79,21 @@ class PerfilWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
+        Container(
+          margin: EdgeInsets.only(top: 5),
+          padding: EdgeInsets.only(top: 12),
+          height: 60,
+          child: RaisedButton(
+            color: Colors.red,
+              child: Text('Sair',
+                  style: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Bitter'),
+                  textAlign: TextAlign.center),
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => LoginPage()));
+              }),
+        ),
       ],
     );
   }
 }
-
-
